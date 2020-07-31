@@ -16,18 +16,18 @@ class LoginFormController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
-   
-
     
-
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Жест нажатия
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         // Присваиваем его UIScrollVIew
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
-
+        
     }
     
     
@@ -44,7 +44,7 @@ class LoginFormController: UIViewController {
         } else {
             print("неуспешная авторизация")
         }
-
+        
     }
     
     // Когда клавиатура появляется
@@ -66,7 +66,7 @@ class LoginFormController: UIViewController {
         let contentInsets = UIEdgeInsets.zero
         scrollView?.contentInset = contentInsets
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -75,7 +75,7 @@ class LoginFormController: UIViewController {
         // Второе — когда она пропадает
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -83,22 +83,22 @@ class LoginFormController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-
+    
     @objc func hideKeyboard() {
-            self.scrollView?.endEditing(true)
-        }
-
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        self.scrollView?.endEditing(true)
     }
-    */
-
+    
+    
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
