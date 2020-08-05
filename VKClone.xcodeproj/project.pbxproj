@@ -13,8 +13,6 @@
 		E13EA04324D181E00016EB27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E13EA04224D181E00016EB27 /* Assets.xcassets */; };
 		E13EA04624D181E00016EB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13EA04424D181E00016EB27 /* LaunchScreen.storyboard */; };
 		E13EA04E24D182230016EB27 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13EA04D24D182230016EB27 /* LoginFormController.swift */; };
-		E18F7E7A24D94DC000130665 /* FrendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F7E7924D94DC000130665 /* FrendsController.swift */; };
-		E18F7E7C24D94E0F00130665 /* FrendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F7E7B24D94E0F00130665 /* FrendsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +24,6 @@
 		E13EA04524D181E00016EB27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E13EA04724D181E00016EB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E13EA04D24D182230016EB27 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
-		E18F7E7924D94DC000130665 /* FrendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrendsController.swift; sourceTree = "<group>"; };
-		E18F7E7B24D94E0F00130665 /* FrendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrendsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +56,7 @@
 		E13EA03824D181DF0016EB27 /* VKClone */ = {
 			isa = PBXGroup;
 			children = (
-				E18F7E7824D9448400130665 /* Photo */,
+				E169D4FE24DAA09000139FCE /* Models */,
 				E13EA03924D181DF0016EB27 /* AppDelegate.swift */,
 				E13EA03B24D181DF0016EB27 /* SceneDelegate.swift */,
 				E13EA03F24D181DF0016EB27 /* Main.storyboard */,
@@ -72,13 +68,11 @@
 			path = VKClone;
 			sourceTree = "<group>";
 		};
-		E18F7E7824D9448400130665 /* Photo */ = {
+		E169D4FE24DAA09000139FCE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E18F7E7924D94DC000130665 /* FrendsController.swift */,
-				E18F7E7B24D94E0F00130665 /* FrendsCell.swift */,
 			);
-			path = Photo;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,10 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E13EA04E24D182230016EB27 /* LoginFormController.swift in Sources */,
-				E18F7E7C24D94E0F00130665 /* FrendsCell.swift in Sources */,
 				E13EA03A24D181DF0016EB27 /* AppDelegate.swift in Sources */,
 				E13EA03C24D181DF0016EB27 /* SceneDelegate.swift in Sources */,
-				E18F7E7A24D94DC000130665 /* FrendsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
