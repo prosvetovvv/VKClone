@@ -56,6 +56,7 @@
 		E13EA03824D181DF0016EB27 /* VKClone */ = {
 			isa = PBXGroup;
 			children = (
+				E169D4FE24DAA09000139FCE /* Models */,
 				E13EA03924D181DF0016EB27 /* AppDelegate.swift */,
 				E13EA03B24D181DF0016EB27 /* SceneDelegate.swift */,
 				E13EA03F24D181DF0016EB27 /* Main.storyboard */,
@@ -65,6 +66,13 @@
 				E13EA04D24D182230016EB27 /* LoginFormController.swift */,
 			);
 			path = VKClone;
+			sourceTree = "<group>";
+		};
+		E169D4FE24DAA09000139FCE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
