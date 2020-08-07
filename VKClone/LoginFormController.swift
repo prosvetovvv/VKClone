@@ -19,9 +19,11 @@ class LoginFormController: UIViewController {
     
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginTextField.text = "a"
+        passwordTextField.text = "1"
         
         // Жест нажатия
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -32,18 +34,6 @@ class LoginFormController: UIViewController {
     
     
     @IBAction func signUpPressed(_ sender: UIButton) {
-        
-//        // Получаем текст логина
-//        let login = loginTextField.text!
-//        // Получаем текст-пароль
-//        let password = passwordTextField.text!
-//
-//        // Проверяем, верны ли они
-//        if login == "admin" && password == "123456" {
-//            print("успешная авторизация")
-//        } else {
-//            print("неуспешная авторизация")
-//        }
         
     }
     
@@ -70,12 +60,12 @@ class LoginFormController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.isNavigationBarHidden = false
+        
         
         // Подписываемся на два уведомления: одно приходит при появлении клавиатуры
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
         // Второе — когда она пропадает
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -91,41 +81,41 @@ class LoginFormController: UIViewController {
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-            // Проверяем данные
-            let checkResult = checkUserData()
-            
-            // Если данные не верны, покажем ошибку
-            if !checkResult {
-                showLoginError()
-            }
-            
-            // Вернем результат
-            return checkResult
+        // Проверяем данные
+        let checkResult = checkUserData()
+        
+        // Если данные не верны, покажем ошибку
+        if !checkResult {
+            showLoginError()
         }
         
-        func checkUserData() -> Bool {
-            guard let login = loginTextField.text,
-                let password = passwordTextField.text else { return false }
-            
-            if login == "a" && password == "1" {
-                return true
-            } else {
-                return false
-            }
-        }
+        // Вернем результат
+        return checkResult
+    }
+    
+    func checkUserData() -> Bool {
+        guard let login = loginTextField.text,
+            let password = passwordTextField.text else { return false }
         
-        func showLoginError() {
-            // Создаем контроллер
-            let alter = UIAlertController(title: "Ошибка", message: "Введены не верные данные пользователя", preferredStyle: .alert)
-            // Создаем кнопку для UIAlertController
-            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            // Добавляем кнопку на UIAlertController
-            alter.addAction(action)
-            // Показываем UIAlertController
-            present(alter, animated: true, completion: nil)
+        if login == "a" && password == "1" {
+            return true
+        } else {
+            return false
         }
-
-
+    }
+    
+    func showLoginError() {
+        // Создаем контроллер
+        let alter = UIAlertController(title: "Ошибка", message: "Введены не верные данные пользователя", preferredStyle: .alert)
+        // Создаем кнопку для UIAlertController
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        // Добавляем кнопку на UIAlertController
+        alter.addAction(action)
+        // Показываем UIAlertController
+        present(alter, animated: true, completion: nil)
+    }
+    
+    
     
     
     
