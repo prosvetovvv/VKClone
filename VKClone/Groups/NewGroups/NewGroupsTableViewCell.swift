@@ -16,17 +16,19 @@ class NewGroupsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         imageNewGroup.layer.cornerRadius = imageNewGroup.frame.size.height / 2
         imageNewGroup.clipsToBounds = true
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
+        super.setSelected(selected, animated: animated)        
     }
     
-    func configure (for groups: [NewGroup], indexPath: IndexPath) {
+    // Configure the cell
+    
+    func configure (for groups: [Group], indexPath: IndexPath) {
         
         nameNewGroup.text =  groups[indexPath.row].name
         descriptionNewGroup.text = (groups[indexPath.row].description)

@@ -11,10 +11,7 @@ import UIKit
 class ActiveGroupTableViewCell: UITableViewCell {
     
     @IBOutlet weak var imageActiveGroup: UIImageView!
-    
-    
     @IBOutlet weak var nameActiveGroup: UILabel!
-    
     @IBOutlet weak var descriptionActiveGroup: UILabel!
     
     override func awakeFromNib() {
@@ -27,8 +24,10 @@ class ActiveGroupTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        // Configure the view for the selected state
+        
     }
+    
+    // Configure the cell
     
     func configure (for groups: [Group], indexPath: IndexPath) {
         

@@ -15,9 +15,8 @@ class FriendViewCell: UITableViewCell {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!
     
-    override func awakeFromNib() {
+    override func awakeFromNib() {        
         
-        //backgroundColor = .blue
         friendImageView.layer.cornerRadius = friendImageView.frame.size.height / 2
         friendImageView.clipsToBounds = true
     }

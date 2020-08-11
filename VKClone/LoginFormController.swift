@@ -11,19 +11,14 @@ import UIKit
 class LoginFormController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
-    
     @IBOutlet weak var loginTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginTextField.text = "a"
-        passwordTextField.text = "1"
+        loginTextField.text = "user"
+        passwordTextField.text = "password"
         
         // Жест нажатия
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -31,7 +26,6 @@ class LoginFormController: UIViewController {
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
         
     }
-    
     
     @IBAction func signUpPressed(_ sender: UIButton) {
         
@@ -97,7 +91,7 @@ class LoginFormController: UIViewController {
         guard let login = loginTextField.text,
             let password = passwordTextField.text else { return false }
         
-        if login == "a" && password == "1" {
+        if login == "user" && password == "password" {
             return true
         } else {
             return false
@@ -114,20 +108,5 @@ class LoginFormController: UIViewController {
         // Показываем UIAlertController
         present(alter, animated: true, completion: nil)
     }
-    
-    
-    
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
