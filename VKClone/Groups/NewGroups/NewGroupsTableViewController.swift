@@ -48,7 +48,7 @@ class NewGroupsTableViewController: UITableViewController {
         
         let selectedGroup = newGroups[indexPath.row]
         
-        if  !groups.contains(where: {$0.name == selectedGroup.name}) {
+        if  !groups.contains(where: {$0.name == selectedGroup.name}) {            
             
             groups.append(selectedGroup)
             newGroups.remove(at: indexPath.row)
