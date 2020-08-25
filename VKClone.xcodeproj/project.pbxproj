@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E111377224EAB7E300EB3CDF /* avatarWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E111377124EAB7E300EB3CDF /* avatarWithShadow.swift */; };
-		E12F8ADD24E5493100CF8E94 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F8ADC24E5493100CF8E94 /* TestViewController.swift */; };
 		E13EA03A24D181DF0016EB27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13EA03924D181DF0016EB27 /* AppDelegate.swift */; };
 		E13EA03C24D181DF0016EB27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13EA03B24D181DF0016EB27 /* SceneDelegate.swift */; };
 		E13EA04124D181DF0016EB27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13EA03F24D181DF0016EB27 /* Main.storyboard */; };
@@ -36,7 +35,6 @@
 
 /* Begin PBXFileReference section */
 		E111377124EAB7E300EB3CDF /* avatarWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = avatarWithShadow.swift; sourceTree = "<group>"; };
-		E12F8ADC24E5493100CF8E94 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E13EA03624D181DF0016EB27 /* VKClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13EA03924D181DF0016EB27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E13EA03B24D181DF0016EB27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 			children = (
 				E15817EE24E3DE6400AACBA5 /* LikeControlStackView.swift */,
 				E1CCD9E024E4914800952EB7 /* LikeUIControl.swift */,
-				E12F8ADC24E5493100CF8E94 /* TestViewController.swift */,
 			);
 			path = LikeControl;
 			sourceTree = "<group>";
@@ -290,7 +287,6 @@
 				E15817F324E42E8000AACBA5 /* PhotoCollectionViewCell.swift in Sources */,
 				E13EA04E24D182230016EB27 /* LoginFormController.swift in Sources */,
 				E15817EF24E3DE6400AACBA5 /* LikeControlStackView.swift in Sources */,
-				E12F8ADD24E5493100CF8E94 /* TestViewController.swift in Sources */,
 				E13EA03A24D181DF0016EB27 /* AppDelegate.swift in Sources */,
 				E179E65024DCB47700B242C7 /* NewGroupsTableViewCell.swift in Sources */,
 				E169D50224DABAEF00139FCE /* FriendsTableViewController.swift in Sources */,

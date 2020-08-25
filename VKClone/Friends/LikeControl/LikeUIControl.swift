@@ -14,19 +14,9 @@ import UIKit
     private var elementsOfStackView: [UIView] = []
     private var buttonLike = UIButton()
     let labelCount = UILabel()
-    private var countLike = 0 {
-        didSet {
-            createLabelCount()
-        }
-    }
     
-    
-    @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
-        didSet {
-            setupStackView()
-        }
-    }
-    
+    private var countLike = 0
+        
     // MARK:- Initialization
     
     override init(frame: CGRect) {
@@ -43,6 +33,7 @@ import UIKit
         super.init(coder: aDecoder)
         
         self.backgroundColor = .clear
+        //self.setupStackView()
         self.createLikeButton()
         self.createLabelCount()
         self.setupStackView()
@@ -56,13 +47,13 @@ import UIKit
         if buttonLike.isSelected {
             buttonLike.isSelected = false
             countLike -= 1
+            labelCount.text = "\(countLike)"
         } else {
             buttonLike.isSelected = true
             countLike += 1
+            labelCount.text = "\(countLike)"
            
-            //buttonLike.setImage(UIImage(named: "filledStar", for: .selected)
         }
-    
     }
     
     // MARK:- Private Methods
@@ -74,22 +65,17 @@ import UIKit
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         
-        //stackView = UIStackView(arrangedSubviews: self.elementsOfStackView)
-        
-        self.addSubview(stackView)
+        addSubview(stackView)
         
     }
     
     private func createLabelCount() {
         
-        stackView.removeArrangedSubview(labelCount)
-        
-        //labelCount.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        labelCount.textAlignment = .center //For center alignment
+        labelCount.textAlignment = .left
         labelCount.text = "\(countLike)"
-        //labelCount.textColor = .white
-        //labelCount.backgroundColor = .lightGray//If required
-        labelCount.font = UIFont.systemFont(ofSize: 20)
+        labelCount.textColor = .white
+        labelCount.font = UIFont.systemFont(ofSize: 16.0, weight: .medium)
+        
 
         elementsOfStackView.append(labelCount)
         
@@ -98,17 +84,14 @@ import UIKit
     
 
     private func createLikeButton() {
-        //let buttonLike = UIButton()
-        
-        let bundle = Bundle(for: type(of: self))
-        let emptyStar = UIImage(named:"emptyStar", in: bundle, compatibleWith: self.traitCollection)
-        let filledStar = UIImage(named: "filledStar", in: bundle, compatibleWith: self.traitCollection)
-        let highlightedStar = UIImage(named:"highlightedStar", in: bundle, compatibleWith: self.traitCollection)
-        
-        buttonLike.setImage(emptyStar, for: .normal)
-        buttonLike.setImage(filledStar, for: .selected)
-        buttonLike.setImage(highlightedStar, for: .highlighted)
-        buttonLike.setImage(highlightedStar, for: [.highlighted, .selected])
+
+        let configWight = UIImage.SymbolConfiguration(pointSize: 18.0, weight: .medium)
+        let emptyHeart = UIImage(systemName: "heart", withConfiguration: configWight)
+        let fillHeart = UIImage(systemName: "heart.fill", withConfiguration: configWight)
+    
+        buttonLike.setImage(emptyHeart, for: .normal)
+        buttonLike.setImage(fillHeart, for: .selected)
+        buttonLike.tintColor = .white
         
         buttonLike.addTarget(self, action: #selector(likeButtonTapped(button:)), for: .touchUpInside)
                 
