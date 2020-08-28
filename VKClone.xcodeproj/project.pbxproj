@@ -78,6 +78,7 @@
 			children = (
 				E13EA03824D181DF0016EB27 /* VKClone */,
 				E13EA03724D181DF0016EB27 /* Products */,
+				E18FA9F024F7EEB90092911D /* Test */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +119,7 @@
 			children = (
 				E14AE83B24E28E8100A26D90 /* ArrayOfNewGroups.swift */,
 				E14AE83824E28DD100A26D90 /* ArrayOfActiveGroups.swift */,
+				E111377124EAB7E300EB3CDF /* avatarWithShadow.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -133,7 +135,6 @@
 		E15817ED24E3DDC700AACBA5 /* LikeControl */ = {
 			isa = PBXGroup;
 			children = (
-				E15817EE24E3DE6400AACBA5 /* LikeControlStackView.swift */,
 				E1CCD9E024E4914800952EB7 /* LikeUIControl.swift */,
 			);
 			path = LikeControl;
@@ -145,6 +146,14 @@
 				E169D50324DABF5800139FCE /* Friend.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E18FA9F024F7EEB90092911D /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				E15817EE24E3DE6400AACBA5 /* LikeControlStackView.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		E1B7B12824DB50DE00100972 /* Friends */ = {
@@ -164,7 +173,6 @@
 			children = (
 				E169D50124DABAEF00139FCE /* FriendsTableViewController.swift */,
 				E1B7B12924DB515D00100972 /* FriendViewCell.swift */,
-				E111377124EAB7E300EB3CDF /* avatarWithShadow.swift */,
 			);
 			path = FriendsTableView;
 			sourceTree = "<group>";

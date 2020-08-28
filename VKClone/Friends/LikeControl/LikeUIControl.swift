@@ -15,6 +15,9 @@ import UIKit
     private var buttonLike = UIButton()
     let labelCount = UILabel()
     
+    var boo = false
+    
+    
     private var countLike = 0
         
     // MARK:- Initialization
@@ -45,11 +48,11 @@ import UIKit
     @objc func likeButtonTapped(button: UIButton) {
         
         if buttonLike.isSelected {
-            buttonLike.isSelected = false
+            buttonLike.isSelected.toggle()
             countLike -= 1
             labelCount.text = "\(countLike)"
         } else {
-            buttonLike.isSelected = true
+            buttonLike.isSelected.toggle()
             countLike += 1
             labelCount.text = "\(countLike)"
            

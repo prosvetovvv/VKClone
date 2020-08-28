@@ -458,7 +458,7 @@
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dnr-z0-Gbk" customClass="LikeUIControl" customModule="VKClone" customModuleProvider="target">
                                                     <rect key="frame" x="3" y="267" width="60" height="30"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="OYq-6o-g2g"/>
                                                         <constraint firstAttribute="width" constant="60" id="QuI-wX-d4a"/>
@@ -504,7 +504,7 @@
         <scene sceneID="fsX-Nh-yzP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SYt-oe-cAe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Groups" id="k0C-aJ-Ecd"/>
+                    <tabBarItem key="tabBarItem" title="Groups" image="square.grid.3x2.fill" catalog="system" id="k0C-aJ-Ecd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vpC-gV-sBb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -523,7 +523,7 @@
         <scene sceneID="xLI-zy-4UR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bK2-Nd-WyN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends" id="RBF-Ch-2gR"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="person.3.fill" catalog="system" id="RBF-Ch-2gR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v3o-bG-cWZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -541,6 +541,8 @@
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="square.grid.3x2.fill" catalog="system" width="128" height="80"/>
     </resources>
 </document>
