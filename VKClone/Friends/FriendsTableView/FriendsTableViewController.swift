@@ -38,7 +38,7 @@ class FriendsTableViewController: UITableViewController {
         
         let selectedIndex = indexPath.row
         let selectedFriend = selectedIndex
-        let FriendsPhotoCollectionVC = storyboard?.instantiateViewController(withIdentifier: "FriendsPhotoCollectionViewKey") as! FriendsPhotoCollectionViewController
+        let FriendsPhotoCollectionVC = storyboard?.instantiateViewController(withIdentifier: "PhotoCollectionViewControllerKey") as! PhotoCollectionViewController
         
         FriendsPhotoCollectionVC.myFriend = friends[selectedFriend]
         

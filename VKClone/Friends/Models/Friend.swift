@@ -27,4 +27,22 @@ struct Friend {
         
         return friends
     }
+    
+//    static func getSortedFriends(from array: [[[String]]]) -> [Friend] {
+//        
+//        var friends = [Friend]()
+//        var namesDictionary = [String: [String]]()
+//        
+//        for friend in array {
+//            
+//            let nameKey = String(friend[0][0].prefix(1))
+//            if var nameValues = namesDictionary[nameKey] {
+//                nameValues.append(friend)
+//            }
+//        }
+//        
+//        
+//        
+//        return friends
+//    }
 }

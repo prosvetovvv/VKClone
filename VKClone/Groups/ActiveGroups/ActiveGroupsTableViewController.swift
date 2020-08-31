@@ -10,8 +10,6 @@ import UIKit
 
 class ActiveGroupsTableViewController: UITableViewController {
     
-    //var groups = Group.getGroups(from: groupsNames)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -23,7 +21,7 @@ class ActiveGroupsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return groups.count
     }
     

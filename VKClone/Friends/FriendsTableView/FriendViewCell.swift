@@ -8,25 +8,27 @@
 
 import UIKit
 
-class FriendViewCell: UITableViewCell {
+ class FriendViewCell: UITableViewCell {
     
-    @IBOutlet weak var friendImageView: UIImageView!
+    
+    @IBOutlet weak var avatarWithShadow: avatarWithShadow!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!
     
-    override func awakeFromNib() {        
+    override func awakeFromNib() {
         
-        friendImageView.layer.cornerRadius = friendImageView.frame.size.height / 2
-        friendImageView.clipsToBounds = true
     }
     
     func configure (for friends: [Friend], indexPath: IndexPath) {
         
+        let avatar = UIImage(named: friends[indexPath.row].image)
+        
+        avatarWithShadow.addImage(image: avatar)
+        
         nameLabel.text =  friends[indexPath.row].name
         ageLabel.text = "\(friends[indexPath.row].age)"
         birthdayLabel.text = (friends[indexPath.row].birthday)
-        friendImageView.image = UIImage(named: friends[indexPath.row].image)        
         
     }
 }
