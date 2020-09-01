@@ -19,16 +19,26 @@ import UIKit
     override func awakeFromNib() {
         
     }
-    
-    func configure (for friends: [Friend], indexPath: IndexPath) {
         
-        let avatar = UIImage(named: friends[indexPath.row].image)
+    func configure (for friends: [String: [Friend]], nameSectionTitles: [String], indexPath: IndexPath) {
         
-        avatarWithShadow.addImage(image: avatar)
-        
-        nameLabel.text =  friends[indexPath.row].name
-        ageLabel.text = "\(friends[indexPath.row].age)"
-        birthdayLabel.text = (friends[indexPath.row].birthday)
-        
+        let nameKey = nameSectionTitles[indexPath.section]
+        if let nameValues = friends[nameKey] {
+            let avatar = UIImage(named: nameValues[indexPath.row].image)
+            
+            avatarWithShadow.addImage(image: avatar)
+            nameLabel.text = nameValues[indexPath.row].name
+            ageLabel.text = "\(nameValues[indexPath.row].age)"
+            birthdayLabel.text = (nameValues[indexPath.row].birthday)
+        }
+
+//        let avatar = UIImage(named: friends[indexPath.row].image)
+//
+//        avatarWithShadow.addImage(image: avatar)
+//
+//        nameLabel.text =  friends[indexPath.row].name
+//        ageLabel.text = "\(friends[indexPath.row].age)"
+//        birthdayLabel.text = (friends[indexPath.row].birthday)
+
     }
 }

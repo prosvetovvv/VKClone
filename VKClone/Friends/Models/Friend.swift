@@ -28,21 +28,28 @@ struct Friend {
         return friends
     }
     
-    //    static func getSortedFriends(from array: [[[String]]]) -> [Friend] {
-    //
-    //        var friends = [Friend]()
-    //        var namesDictionary = [String: [String]]()
-    //
-    //        for friend in array {
-    //
-    //            let nameKey = String(friend[0][0].prefix(1))
-    //            if var nameValues = namesDictionary[nameKey] {
-    //                nameValues.append(friend)
-    //            }
-    //        }
-    //
-    //
-    //
-    //        return friends
-    //    }
+    static func getSortedFriends(from array: [[[String]]]) -> [String: [Friend]] {
+        
+        //var friends = [Friend]()
+        var namesDictionary = [String: [Friend]]()
+        //var namesSectionTitles = [String]()
+        
+        for friend in array {
+            
+            let nameKey = String(friend[0][0].prefix(1))
+            if var nameValues = namesDictionary[nameKey] {
+                nameValues.append(Friend(image: friend[0][0], name: friend[0][0], age: 34, birthday: "10.11.1985", photo: friend[1]))
+                namesDictionary[nameKey] = nameValues
+            } else {
+                namesDictionary[nameKey] = [Friend(image: friend[0][0], name: friend[0][0], age: 34, birthday: "10.11.1985", photo: friend[1])]
+            }
+        }
+        
+        
+        //        namesSectionTitles = [String](namesDictionary.keys)
+        //        namesSectionTitles = namesSectionTitles.sorted(by: { $0 < $1 })
+        
+        
+        return namesDictionary
+    }
 }

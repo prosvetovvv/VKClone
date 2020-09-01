@@ -13,18 +13,6 @@ struct Group {
     let name: String
     let description: String
     
-    
-//    static let groupsNames = [
-//        ["Любители Ferrari", "Авто"],
-//        ["Поймай Марлина", "Рыбалка"],
-//        ["Жители Москвы", "Города"],
-//        ["Готовим стейки", "Еда"],
-//        ["Craft beer", "Пиво"],
-//        ["Swift", "Программирование"],
-//        ["BMW Club", "Авто"],
-//        ["Radio cars", "Хобби"]
-//    ]
-    
     static func getGroups(from array: [[String]]) -> [Group] {
         
         var groups = [Group]()
