@@ -10,16 +10,22 @@ import UIKit
 
 @IBDesignable class LikeUIControl: UIControl {
     
+//    @IBInspectable var colorButton: UIColor? {
+//        get {
+//            return UIColor(cgColor: self.layer.colorButton!)
+//        }
+//        set {
+//            self.layer.colorButton = newValue?.cgColor
+//        }
+//    }
+    
     private var stackView = UIStackView()
     private var elementsOfStackView: [UIView] = []
     private var buttonLike = UIButton()
+    private var countLike = 0
+    
     let labelCount = UILabel()
     
-    var boo = false
-    
-    
-    private var countLike = 0
-        
     // MARK:- Initialization
     
     override init(frame: CGRect) {
@@ -55,14 +61,14 @@ import UIKit
             buttonLike.isSelected.toggle()
             countLike += 1
             labelCount.text = "\(countLike)"
-           
+            
         }
     }
     
     // MARK:- Private Methods
     
     private func setupStackView() {
-                
+        
         stackView.spacing = 0
         stackView.axis = .horizontal
         stackView.alignment = .fill
@@ -79,38 +85,38 @@ import UIKit
         labelCount.textColor = .white
         labelCount.font = UIFont.systemFont(ofSize: 16.0, weight: .medium)
         
-
+        
         elementsOfStackView.append(labelCount)
         
         stackView.addArrangedSubview(labelCount)
     }
     
-
+    
     private func createLikeButton() {
-
+        
         let configWight = UIImage.SymbolConfiguration(pointSize: 18.0, weight: .medium)
         let emptyHeart = UIImage(systemName: "heart", withConfiguration: configWight)
         let fillHeart = UIImage(systemName: "heart.fill", withConfiguration: configWight)
-    
+        
         buttonLike.setImage(emptyHeart, for: .normal)
         buttonLike.setImage(fillHeart, for: .selected)
         buttonLike.tintColor = .white
         
         buttonLike.addTarget(self, action: #selector(likeButtonTapped(button:)), for: .touchUpInside)
-                
+        
         elementsOfStackView.append(buttonLike)
         
         stackView.addArrangedSubview(buttonLike)
-
+        
     }
     
- 
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-    stackView.frame = bounds
+        stackView.frame = bounds
         
     }
     
-
+    
 }
