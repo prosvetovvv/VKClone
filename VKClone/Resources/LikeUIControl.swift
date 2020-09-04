@@ -10,21 +10,31 @@ import UIKit
 
 @IBDesignable class LikeUIControl: UIControl {
     
-//    @IBInspectable var colorButton: UIColor? {
-//        get {
-//            return UIColor(cgColor: self.layer.colorButton!)
-//        }
-//        set {
-//            self.layer.colorButton = newValue?.cgColor
-//        }
-//    }
-    
     private var stackView = UIStackView()
     private var elementsOfStackView: [UIView] = []
     private var buttonLike = UIButton()
+    private let labelCount = UILabel()
     private var countLike = 0
     
-    let labelCount = UILabel()
+    @IBInspectable var colorHeart: UIColor? {
+        get {
+            return buttonLike.tintColor
+        }
+        set {
+            buttonLike.tintColor = newValue
+        }
+    }
+    
+    @IBInspectable var colorCount: UIColor? {
+        get {
+            return labelCount.textColor
+        }
+        set {
+            labelCount.textColor = newValue
+        }
+    }
+    
+    
     
     // MARK:- Initialization
     
@@ -42,7 +52,7 @@ import UIKit
         super.init(coder: aDecoder)
         
         self.backgroundColor = .clear
-        //self.setupStackView()
+
         self.createLikeButton()
         self.createLabelCount()
         self.setupStackView()
@@ -54,10 +64,14 @@ import UIKit
     @objc func likeButtonTapped(button: UIButton) {
         
         if buttonLike.isSelected {
-            buttonLike.isSelected.toggle()
-            countLike -= 1
-            labelCount.text = "\(countLike)"
+            animateLikeButton()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.countLike -= 1
+                self.buttonLike.isSelected.toggle()
+                self.labelCount.text = "\(self.countLike)"
+            }
         } else {
+            animateLikeButton()
             buttonLike.isSelected.toggle()
             countLike += 1
             labelCount.text = "\(countLike)"
@@ -82,11 +96,7 @@ import UIKit
         
         labelCount.textAlignment = .left
         labelCount.text = "\(countLike)"
-        labelCount.textColor = .white
         labelCount.font = UIFont.systemFont(ofSize: 16.0, weight: .medium)
-        
-        
-        elementsOfStackView.append(labelCount)
         
         stackView.addArrangedSubview(labelCount)
     }
@@ -100,13 +110,24 @@ import UIKit
         
         buttonLike.setImage(emptyHeart, for: .normal)
         buttonLike.setImage(fillHeart, for: .selected)
-        buttonLike.tintColor = .white
-        
         buttonLike.addTarget(self, action: #selector(likeButtonTapped(button:)), for: .touchUpInside)
         
-        elementsOfStackView.append(buttonLike)
-        
         stackView.addArrangedSubview(buttonLike)
+        
+    }
+    
+    private func animateLikeButton() {
+        
+        UIView.animate(withDuration: 0.1,
+        animations: { [weak self] in
+            self?.buttonLike.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            
+        },
+        completion: { _ in
+            UIView.animate(withDuration: 0.1) { [weak self] in
+                self?.buttonLike.transform = CGAffineTransform.identity
+            }
+        })
         
     }
     
