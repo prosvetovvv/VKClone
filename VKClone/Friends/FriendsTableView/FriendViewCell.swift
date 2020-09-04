@@ -11,7 +11,7 @@ import UIKit
  class FriendViewCell: UITableViewCell {
     
     
-    @IBOutlet weak var avatarWithShadow: avatarWithShadow!
+    @IBOutlet weak var avatarWithShadow: AvatarWithShadow!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class avatarWithShadow: UIView {
+@IBDesignable class AvatarWithShadow: UIView {
     
     var avatarImageView = UIImageView()
     
@@ -64,17 +64,19 @@ import UIKit
         self.frame.size = sizeAvatar
         self.backgroundColor = .lightText
         addAvatarView()
-       
+        setupGesture()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         addAvatarView()
+        setupGesture()
         
     }
     
-    // MARK:- Private methods
+    // MARK:- Create avatar
     
     private func addAvatarView() {
         
@@ -93,6 +95,42 @@ import UIKit
         } else {
             avatarImageView.image = UIImage(named: "И1")
         }
+    }
+    
+    // MARK:- Action avatar
+    
+    private func setupGesture() {
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AvatarWithShadow.imageTapped(gesture:)))
+        
+        avatarImageView.addGestureRecognizer(tapGesture)
+        avatarImageView.isUserInteractionEnabled = true
+    }
+    
+    @objc func imageTapped(gesture: UIGestureRecognizer) {
+        
+        if (gesture.view as? UIImageView) != nil {
+            animateAvatarWithSpring()
+        }
+    }
+    
+    // MARK:- Animate
+    
+    private func animateAvatarWithSpring() {
+        
+        self.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        
+        UIView.animate(withDuration: 2.0,
+                       delay: 0,
+                       usingSpringWithDamping: 0.2,
+                       initialSpringVelocity: 6,
+                       options: UIView.AnimationOptions.allowUserInteraction,
+                       animations: { [weak self] in
+                        self?.transform = CGAffineTransform.identity
+            },
+                       completion: nil
+        )
+        
     }
     
 }

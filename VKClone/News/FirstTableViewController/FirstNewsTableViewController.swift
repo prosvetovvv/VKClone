@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsTableViewController: UITableViewController {
+class FirstNewsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class NewsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewTableViewCell", for: indexPath) as! NewTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FirstNewTableViewCell", for: indexPath) as! FirstNewTableViewCell
         
         cell.configure(for: news, indexPath: indexPath)
         
