@@ -12,7 +12,7 @@ import UIKit
     
     private let dot = CALayer()
     private let numberDots = 3
-    private var dotSize = CGRect(x: 0,y: 0,width: 16,height: 16)
+    private var dotSize = CGRect(x: 0, y: 0, width: 16, height: 16)
     
     @IBInspectable var colorDot: UIColor? {
         get {
@@ -38,6 +38,7 @@ import UIKit
         createDotsLoader()
         
     }
+    
     
     // MARK:- Create Dots Loader
     
