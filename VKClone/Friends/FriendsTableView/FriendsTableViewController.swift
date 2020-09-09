@@ -10,7 +10,6 @@ import UIKit
 
 class FriendsTableViewController: UITableViewController {
     
-    //let friends = Friend.getFriends(from: friendNames)
     let sortedFriends = Friend.getSortedFriends(from: friendNames)
     
     var nameSectionTitles = [String]()
@@ -29,11 +28,7 @@ class FriendsTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         nameSectionTitles.count
     }
-    
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return friends.count
-//    }
-    
+        
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let nameKey = nameSectionTitles[section]
         if let nameValue = sortedFriends[nameKey] {
@@ -43,15 +38,7 @@ class FriendsTableViewController: UITableViewController {
         return 0
     }
     
-    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! FriendViewCell
-//        cell.configure(for: friends, indexPath: indexPath)
-//
-//        return cell
-//    }
-    
+        
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! FriendViewCell
@@ -61,34 +48,38 @@ class FriendsTableViewController: UITableViewController {
     }
     
     // MARK: - Table view delegate
+        
+        // For ViewCollection
+//        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//            let nameKey = nameSectionTitles[indexPath.section]
+//            if  let nameValues = sortedFriends[nameKey] {
+//
+//
+//            let FriendsPhotoCollectionVC = storyboard?.instantiateViewController(withIdentifier: "PhotoCollectionViewControllerKey") as! PhotoCollectionViewController
+//
+//            FriendsPhotoCollectionVC.myFriend = nameValues[indexPath.row]
+//
+//            show(FriendsPhotoCollectionVC, sender: nil)
+//            }
+//
+//        }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        let selectedIndex = indexPath.row
-//        let selectedFriend = selectedIndex
-//        let FriendsPhotoCollectionVC = storyboard?.instantiateViewController(withIdentifier: "PhotoCollectionViewControllerKey") as! PhotoCollectionViewController
-//
-//        FriendsPhotoCollectionVC.myFriend = friends[selectedFriend]
-//
-//        show(FriendsPhotoCollectionVC, sender: nil)
-//
-//    }
-    
-        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
-           // let selectedIndex = indexPath.row
-            //let selectedFriend = selectedIndex
+    // For Animated ImageView Lesson8
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
             let nameKey = nameSectionTitles[indexPath.section]
-            if  let nameValues = sortedFriends[nameKey] {
+            if  let friends = sortedFriends[nameKey] {
+
+
+            let FriendsPhotoCollectionVC = storyboard?.instantiateViewController(withIdentifier: "PhotoCollectionVCKey") as! AnimatedGalleryViewController
+
+            FriendsPhotoCollectionVC.myFriend = friends[indexPath.row]
                 
-            
-            let FriendsPhotoCollectionVC = storyboard?.instantiateViewController(withIdentifier: "PhotoCollectionViewControllerKey") as! PhotoCollectionViewController
-    
-            FriendsPhotoCollectionVC.myFriend = nameValues[indexPath.row]
-    
+                //FriendsPhotoCollectionVC.pre
             show(FriendsPhotoCollectionVC, sender: nil)
             }
-    
+
         }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
