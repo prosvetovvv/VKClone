@@ -57,10 +57,8 @@ class AnimatedGalleryViewController: UIViewController {
         switch gestureRecognizer.state {
             
         case .changed:
-            
            
             gestureView.center.x += translation.x
-            
             gestureRecognizer.setTranslation(.zero, in: view)
             
         case .ended:
@@ -83,17 +81,17 @@ class AnimatedGalleryViewController: UIViewController {
                 
             }
             
+            // Если фотка сдвинута вправо больше чем на половину и она первая в массиве, то возвращаем ее в центр экрана
+            if gestureView.center.x > offset && indexImage == 0 {
+                gestureView.center.x = xZeroPositionImageView
+            }
+            
             // Если фотка сдвинута вправо больше чем на половину и она не первая в массиве, то запускается анимация
             if gestureView.center.x > offset && indexImage < photoArray.count && indexImage > 0 {
                  
                 indexImage -= 1
                 movePhotoRight(photo: gestureView)
                 
-            }
-            
-            // Если фотка сдвинута вправо больше чем на половину и она первая в массиве, то возвращаем ее в центр экрана
-            if gestureView.center.x > offset && indexImage == 0 {
-                gestureView.center.x = xZeroPositionImageView
             }
     
         default: return
@@ -109,7 +107,7 @@ class AnimatedGalleryViewController: UIViewController {
                        animations: {
                         photo.center.x -= self.offset
         },
-                       completion: { _ in
+                       completion: { _ in                        
                         photo.center.x = self.xZeroPositionImageView
                         self.photo.image = UIImage(named: "\(self.photoArray[self.indexImage])")
                         
@@ -124,6 +122,7 @@ class AnimatedGalleryViewController: UIViewController {
                        options: .curveEaseOut,
                        animations: {
                         photo.center.x += self.offset
+                        
                       
         },
                        completion: { _ in
