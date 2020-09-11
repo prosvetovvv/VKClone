@@ -639,7 +639,7 @@
         <!--Groups-->
         <scene sceneID="fsX-Nh-yzP">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SYt-oe-cAe" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SYt-oe-cAe" customClass="CustomNavigationController" customModule="VKClone" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Groups" image="square.grid.3x2.fill" catalog="system" id="k0C-aJ-Ecd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vpC-gV-sBb">
@@ -658,7 +658,7 @@
         <!--Friends-->
         <scene sceneID="xLI-zy-4UR">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bK2-Nd-WyN" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bK2-Nd-WyN" customClass="CustomNavigationController" customModule="VKClone" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friends" image="person.3.fill" catalog="system" id="RBF-Ch-2gR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v3o-bG-cWZ">
