@@ -29,7 +29,7 @@ class AnimatedGalleryViewController: UIViewController {
     var photoArray = [String]()
     var indexImage = 0
     let panGestureRecognizer = UIPanGestureRecognizer()
-    let swipeGestureRecognizer = UISwipeGestureRecognizer()
+    //let swipeGestureRecognizer = UISwipeGestureRecognizer()
     var panGestureAnchorPoint: CGPoint?
     
     override func viewDidLoad() {
@@ -46,13 +46,34 @@ class AnimatedGalleryViewController: UIViewController {
         photo.image = UIImage(named: "\(photoArray[indexImage])")
         photo.addGestureRecognizer(panGestureRecognizer)
         
-        swipeGestureRecognizer.addTarget(self, action: #selector(onSwipe(_:)))
+        //swipeGestureRecognizer.addTarget(self, action: #selector(onSwipe(_:)))
+        let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeftPhoto(_:)))
+        swipeLeftGesture.direction = UISwipeGestureRecognizer.Direction.left
+        photo.addGestureRecognizer(swipeLeftGesture)
+        
+        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeRightPhoto(_:)))
+        swipeRightGesture.direction = UISwipeGestureRecognizer.Direction.right
+        photo.addGestureRecognizer(swipeRightGesture)
         
     }
     
-    @objc func onSwipe(_ gestureRecognizer: UISwipeGestureRecognizer) {
-        //let velocity = gestureRecognizer.velocity(in: view)
+    @objc func swipeLeftPhoto(_ gestureRecognizer: UISwipeGestureRecognizer) {
         guard let gestureView = gestureRecognizer.view else { return }
+        
+        if indexImage < photoArray.count - 1 {
+            indexImage += 1
+            movePhoto(to: -offset, photo: gestureView)
+        }
+        
+    }
+    
+    @objc func swipeRightPhoto(_ gestureRecognizer: UISwipeGestureRecognizer) {
+        guard let gestureView = gestureRecognizer.view else { return }
+        
+        if indexImage <= photoArray.count - 1 {
+            indexImage -= 1
+            movePhoto(to: offset, photo: gestureView)
+        }
         
     }
     
