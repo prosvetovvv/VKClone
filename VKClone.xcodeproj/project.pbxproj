@@ -28,6 +28,7 @@
 		E169D50424DABF5800139FCE /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E169D50324DABF5800139FCE /* Friend.swift */; };
 		E179E64E24DCB42400B242C7 /* NewGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E179E64D24DCB42400B242C7 /* NewGroupsTableViewController.swift */; };
 		E179E65024DCB47700B242C7 /* NewGroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E179E64F24DCB47700B242C7 /* NewGroupsTableViewCell.swift */; };
+		E182C79C250FB657005868C9 /* FriendsTableVCWithUISearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E182C79B250FB657005868C9 /* FriendsTableVCWithUISearchController.swift */; };
 		E1977F62250649CA00A2C8F0 /* AnimatedGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1977F61250649CA00A2C8F0 /* AnimatedGalleryViewController.swift */; };
 		E1AC3E3324DCA001008EBB7C /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AC3E3224DCA001008EBB7C /* Group.swift */; };
 		E1B7B12A24DB515D00100972 /* FriendViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7B12924DB515D00100972 /* FriendViewCell.swift */; };
@@ -70,6 +71,7 @@
 		E169D50324DABF5800139FCE /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		E179E64D24DCB42400B242C7 /* NewGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupsTableViewController.swift; sourceTree = "<group>"; };
 		E179E64F24DCB47700B242C7 /* NewGroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupsTableViewCell.swift; sourceTree = "<group>"; };
+		E182C79B250FB657005868C9 /* FriendsTableVCWithUISearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableVCWithUISearchController.swift; sourceTree = "<group>"; };
 		E1977F61250649CA00A2C8F0 /* AnimatedGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedGalleryViewController.swift; sourceTree = "<group>"; };
 		E1AC3E3224DCA001008EBB7C /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		E1B7B12924DB515D00100972 /* FriendViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewCell.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			children = (
 				E169D50124DABAEF00139FCE /* FriendsTableViewController.swift */,
 				E1B7B12924DB515D00100972 /* FriendViewCell.swift */,
+				E182C79B250FB657005868C9 /* FriendsTableVCWithUISearchController.swift */,
 			);
 			path = FriendsTableView;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				E13EA03C24D181DF0016EB27 /* SceneDelegate.swift in Sources */,
 				E179E64E24DCB42400B242C7 /* NewGroupsTableViewController.swift in Sources */,
 				E15817F124E42A9E00AACBA5 /* PhotoCollectionViewController.swift in Sources */,
+				E182C79C250FB657005868C9 /* FriendsTableVCWithUISearchController.swift in Sources */,
 				E120CC7825095A31005F6C42 /* CustomNavigationController.swift in Sources */,
 				E1C7D58124DC51D80004F5F2 /* FriendsPhotoCollectionViewController.swift in Sources */,
 				E1F593DB25016C620089192E /* DotsLoaderUIControl.swift in Sources */,

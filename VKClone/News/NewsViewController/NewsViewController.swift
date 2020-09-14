@@ -20,8 +20,11 @@ class NewsViewController: UIViewController {
         tableView.register(UINib.init(nibName: "NewsTableViewCell" , bundle: nil), forCellReuseIdentifier: newsCellKey)
     }
     
+    
+    
    
 }
+
 
 
 extension NewsViewController: UITableViewDataSource {

@@ -21,7 +21,6 @@ struct Friend {
         var friends = [Friend]()
         
         for friend in array {
-            
             friends.append(Friend(image: friend[0][0], name: friend[0][0], age: 34, birthday: "10.11.1985", photo: friend[1]))            
         }
         
@@ -29,13 +28,8 @@ struct Friend {
     }
     
     static func getSortedFriends(from array: [[[String]]]) -> [String: [Friend]] {
-        
-        //var friends = [Friend]()
         var namesDictionary = [String: [Friend]]()
-        //var namesSectionTitles = [String]()
-        
         for friend in array {
-            
             let nameKey = String(friend[0][0].prefix(1))
             if var nameValues = namesDictionary[nameKey] {
                 nameValues.append(Friend(image: friend[0][0], name: friend[0][0], age: 34, birthday: "10.11.1985", photo: friend[1]))
@@ -44,11 +38,6 @@ struct Friend {
                 namesDictionary[nameKey] = [Friend(image: friend[0][0], name: friend[0][0], age: 34, birthday: "10.11.1985", photo: friend[1])]
             }
         }
-        
-        
-        //        namesSectionTitles = [String](namesDictionary.keys)
-        //        namesSectionTitles = namesSectionTitles.sorted(by: { $0 < $1 })
-        
         
         return namesDictionary
     }

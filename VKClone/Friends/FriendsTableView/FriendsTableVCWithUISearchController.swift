@@ -8,13 +8,13 @@
 
 import UIKit
 
-class FriendsTableViewController: UITableViewController {
+class FriendsTableVCWithUISearchController: UITableViewController {
     
     var isSearchBarEmpty: Bool {
-      return searchController.searchBar.text?.isEmpty ?? true
+        return searchController.searchBar.text?.isEmpty ?? true
     }
     var isFiltering: Bool {
-      return searchController.isActive && !isSearchBarEmpty
+        return searchController.isActive && !isSearchBarEmpty
     }
     
     var nameSectionTitles = [String]()
@@ -50,11 +50,19 @@ class FriendsTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return nameSectionTitles[section]
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return nameSectionTitles
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         if isFiltering {
             return 1
         }
-            return nameSectionTitles.count
+        return nameSectionTitles.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,30 +76,6 @@ class FriendsTableViewController: UITableViewController {
         return 0
     }
     
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        nameSectionTitles.count
-//    }
-//
-        
-        
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//    let nameKey = nameSectionTitles[section]
-//
-//        if let nameValue = sortedFriends[nameKey] {
-//            return nameValue.count
-//        }
-//
-//        return 0
-//    }
-    
-        
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! FriendViewCell
-//        cell.configure(for: sortedFriends, nameSectionTitles: nameSectionTitles, indexPath: indexPath)
-//
-//        return cell
-//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -103,46 +87,11 @@ class FriendsTableViewController: UITableViewController {
             cell.configureFromDictionary(for: sortedFriends, nameSectionTitles: nameSectionTitles, indexPath: indexPath)
         }
         
-        //cell.configureFromDictionary(for: sortedFriends, nameSectionTitles: nameSectionTitles, indexPath: indexPath)
-        
         return cell
     }
     
     // MARK: - Table view delegate
-        
-        // For ViewCollection
-//        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//            let nameKey = nameSectionTitles[indexPath.section]
-//            if  let nameValues = sortedFriends[nameKey] {
-//
-//
-//            let FriendsPhotoCollectionVC = storyboard?.instantiateViewController(withIdentifier: "PhotoCollectionViewControllerKey") as! PhotoCollectionViewController
-//
-//            FriendsPhotoCollectionVC.myFriend = nameValues[indexPath.row]
-//
-//            show(FriendsPhotoCollectionVC, sender: nil)
-//            }
-//
-//        }
     
-    // For Animated ImageView Lesson8
-    // didSelectRowAt without UISearchBar
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//            let nameKey = nameSectionTitles[indexPath.section]
-//            if  let friends = sortedFriends[nameKey] {
-//
-//            let FriendsPhotoCollectionVC = storyboard?.instantiateViewController(withIdentifier: "PhotoCollectionVCKey") as! AnimatedGalleryViewController
-//
-//            FriendsPhotoCollectionVC.myFriend = friends[indexPath.row]
-//
-//            show(FriendsPhotoCollectionVC, sender: nil)
-//            }
-//        }
-    
-    
-    // didSelectRowAt for UISearchBar.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isFiltering {
             //let friend = filteredFriends[indexPath.row]
@@ -163,46 +112,20 @@ class FriendsTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return nameSectionTitles[section]
-    }
-    
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return nameSectionTitles
-    }
-    
     
     func filterContentForSearchText(_ searchText: String) {
-      filteredFriends = friends.filter { (friend: Friend) -> Bool in
-        return friend.name.lowercased().contains(searchText.lowercased())
-      }
-      
-      tableView.reloadData()
+        filteredFriends = friends.filter { (friend: Friend) -> Bool in
+            return friend.name.lowercased().contains(searchText.lowercased())
+        }
+        
+        tableView.reloadData()
     }
-    
-    // MARK: - Navigation segue
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //
-    //        if segue.identifier == "showFriendPhoto" {
-    //            if let indexPath = self.tableView.indexPathForSelectedRow {
-    //                let vc = segue.destination as! FriendsPhotoCollectionViewController
-    //
-    //                //vc.myFriendPhoto = friends[indexPath.row].image
-    //                vc.myFriend = friends[indexPath.row]
-    //            }
-    //        }
-    //
-    //
-    //
-    //    }
     
 }
 
-extension FriendsTableViewController: UISearchResultsUpdating {
-  func updateSearchResults(for searchController: UISearchController) {
-    let searchBar = searchController.searchBar
-    filterContentForSearchText(searchBar.text!)
-  }
+extension FriendsTableVCWithUISearchController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
 }
