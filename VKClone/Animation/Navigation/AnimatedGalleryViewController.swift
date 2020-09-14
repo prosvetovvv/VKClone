@@ -15,7 +15,7 @@ class AnimatedGalleryViewController: UIViewController {
     var myFriend: Friend?
     
     var xZeroPositionImageView: CGFloat {
-        return self.view.center.x
+        return self.view.bounds.width / 2
     }
     
     var widthImageView: CGFloat {
@@ -29,6 +29,7 @@ class AnimatedGalleryViewController: UIViewController {
     var photoArray = [String]()
     var indexImage = 0
     let panGestureRecognizer = UIPanGestureRecognizer()
+    //let swipeGestureRecognizer = UISwipeGestureRecognizer()
     var panGestureAnchorPoint: CGPoint?
     
     override func viewDidLoad() {
@@ -36,7 +37,6 @@ class AnimatedGalleryViewController: UIViewController {
         
         indexImage = 0
         
-        print(xZeroPositionImageView)
         guard let photoArray = myFriend?.photo else { return }
         self.photoArray = photoArray
         
@@ -46,10 +46,38 @@ class AnimatedGalleryViewController: UIViewController {
         photo.image = UIImage(named: "\(photoArray[indexImage])")
         photo.addGestureRecognizer(panGestureRecognizer)
         
+        //swipeGestureRecognizer.addTarget(self, action: #selector(onSwipe(_:)))
+        let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeftPhoto(_:)))
+        swipeLeftGesture.direction = UISwipeGestureRecognizer.Direction.left
+        photo.addGestureRecognizer(swipeLeftGesture)
+        
+        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeRightPhoto(_:)))
+        swipeRightGesture.direction = UISwipeGestureRecognizer.Direction.right
+        photo.addGestureRecognizer(swipeRightGesture)
+        
+    }
+    
+    @objc func swipeLeftPhoto(_ gestureRecognizer: UISwipeGestureRecognizer) {
+        guard let gestureView = gestureRecognizer.view else { return }
+        
+        if indexImage < photoArray.count - 1 {
+            indexImage += 1
+            movePhoto(to: -offset, photo: gestureView)
+        }
+        
+    }
+    
+    @objc func swipeRightPhoto(_ gestureRecognizer: UISwipeGestureRecognizer) {
+        guard let gestureView = gestureRecognizer.view else { return }
+        
+        if indexImage <= photoArray.count - 1 {
+            indexImage -= 1
+            movePhoto(to: offset, photo: gestureView)
+        }
+        
     }
     
     @objc func onPan(_ gestureRecognizer: UIPanGestureRecognizer) {
-        
         let translation = gestureRecognizer.translation(in: view)
         
         guard let gestureView = gestureRecognizer.view else { return }
@@ -57,7 +85,7 @@ class AnimatedGalleryViewController: UIViewController {
         switch gestureRecognizer.state {
             
         case .changed:
-           
+            
             gestureView.center.x += translation.x
             gestureRecognizer.setTranslation(.zero, in: view)
             
@@ -75,10 +103,9 @@ class AnimatedGalleryViewController: UIViewController {
             
             // Если фотка сдвинута влево больше чем на половину, и она не последняя в массиве, то запускается анимация
             if gestureView.center.x < xZeroPositionImageView && indexImage + 1 < photoArray.count {
-                
                 indexImage += 1
-                movePhotoLeft(photo: gestureView)
-                
+                //movePhotoLeft(photo: gestureView)
+                movePhoto(to: -offset, photo: gestureView)
             }
             
             // Если фотка сдвинута вправо больше чем на половину и она первая в массиве, то возвращаем ее в центр экрана
@@ -88,26 +115,24 @@ class AnimatedGalleryViewController: UIViewController {
             
             // Если фотка сдвинута вправо больше чем на половину и она не первая в массиве, то запускается анимация
             if gestureView.center.x > offset && indexImage < photoArray.count && indexImage > 0 {
-                 
                 indexImage -= 1
-                movePhotoRight(photo: gestureView)
-                
+                //movePhotoRight(photo: gestureView)
+                movePhoto(to: offset, photo: gestureView)
             }
-    
+            
         default: return
         }
         
     }
     
-    func movePhotoLeft(photo: UIView) {
-        
+    private func movePhoto(to offset: CGFloat, photo: UIView) {
         UIView.animate(withDuration: 1,
                        delay: 0,
                        options: .curveEaseOut,
                        animations: {
-                        photo.center.x -= self.offset
+                        photo.center.x += offset
         },
-                       completion: { _ in                        
+                       completion: { _ in
                         photo.center.x = self.xZeroPositionImageView
                         self.photo.image = UIImage(named: "\(self.photoArray[self.indexImage])")
                         
@@ -115,23 +140,5 @@ class AnimatedGalleryViewController: UIViewController {
         )
     }
     
-    func movePhotoRight(photo: UIView) {
-        print(photo.center.x)
-        UIView.animate(withDuration: 1,
-                       delay: 0,
-                       options: .curveEaseOut,
-                       animations: {
-                        photo.center.x += self.offset
-                        
-                      
-        },
-                       completion: { _ in
-                        print("after +: \(photo.center.x)")
-                        photo.center.x = self.xZeroPositionImageView
-                        self.photo.image = UIImage(named: "\(self.photoArray[self.indexImage])")
-                        
-        }
-        )
-    }
     
 }
