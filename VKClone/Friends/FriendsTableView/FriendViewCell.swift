@@ -20,7 +20,7 @@ import UIKit
         
     }
         
-    func configure (for friends: [String: [Friend]], nameSectionTitles: [String], indexPath: IndexPath) {
+    func configureFromDictionary(for friends: [String: [Friend]], nameSectionTitles: [String], indexPath: IndexPath) {
         
         let nameKey = nameSectionTitles[indexPath.section]
         if let nameValues = friends[nameKey] {
@@ -31,14 +31,16 @@ import UIKit
             ageLabel.text = "\(nameValues[indexPath.row].age)"
             birthdayLabel.text = (nameValues[indexPath.row].birthday)
         }
+    }
+    
+    func configureFromArray(for friends: [Friend], indexPath: IndexPath) {
+        let avatar = UIImage(named: friends[indexPath.row].image)
 
-//        let avatar = UIImage(named: friends[indexPath.row].image)
-//
-//        avatarWithShadow.addImage(image: avatar)
-//
-//        nameLabel.text =  friends[indexPath.row].name
-//        ageLabel.text = "\(friends[indexPath.row].age)"
-//        birthdayLabel.text = (friends[indexPath.row].birthday)
+        avatarWithShadow.addImage(image: avatar)
+
+        nameLabel.text =  friends[indexPath.row].name
+        ageLabel.text = "\(friends[indexPath.row].age)"
+        birthdayLabel.text = (friends[indexPath.row].birthday)
 
     }
 }

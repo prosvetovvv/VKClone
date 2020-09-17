@@ -392,7 +392,7 @@
         <!--Friends-->
         <scene sceneID="uaa-3d-mUX">
             <objects>
-                <tableViewController id="w18-Rg-BSR" customClass="FriendsTableViewController" customModule="VKClone" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="w18-Rg-BSR" customClass="FriendsTableVCWithUISearchController" customModule="VKClone" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fWv-Af-4pg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
