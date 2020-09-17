@@ -40,7 +40,7 @@ class FriendsTableVCWithUISearchController: UITableViewController {
         searchController.searchResultsUpdater = self
         // Вывод результата поиска в этот же view controller.
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Candies"
+        searchController.searchBar.placeholder = "Search Friends"
         // Добавление UISearchBar в navigationItem т.к Interface Builder не поддерживает UISearchController.
         navigationItem.searchController = searchController
         // UISearchBar не останется на экране, если пользователь на другой view controller.
