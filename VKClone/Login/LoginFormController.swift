@@ -14,12 +14,14 @@ class LoginFormController: UIViewController {
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    let session = Session.instance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loginTextField.text = "user"
-        passwordTextField.text = "password"
-        
+  
+        loginTextField.text = session.login
+        passwordTextField.text = session.password
+                
         // Жест нажатия
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         // Присваиваем его UIScrollVIew
@@ -91,7 +93,7 @@ class LoginFormController: UIViewController {
         guard let login = loginTextField.text,
             let password = passwordTextField.text else { return false }
         
-        if login == "user" && password == "password" {
+        if login == session.login && password == session.password {
             return true
         } else {
             return false
